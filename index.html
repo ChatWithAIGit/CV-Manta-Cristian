@@ -51,20 +51,24 @@
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="min-h-screen flex flex-col gap-[100px] items-center justify-center ">
          <!-- ===== Header ===== -->
-    <header id="main-header" class="w-full lg:flex lg:items-center justify-center   bg-white dark:bg-gray-800 shadow-lg fixed top-0  z-50 transition-all duration-300">
-            <div class="container flex justify-between items-center px-4 py-4 lg:px-8">
+    <header id="main-header" class="w-full  lg:flex lg:items-center justify-center  bg-white dark:bg-gray-800 shadow-lg fixed top-0  z-50 transition-all duration-300">
+            <div class="container flex justify-between   items-center px-4 py-4 lg:px-8">
                 <!-- Logo -->
                 <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">Manta Paul-Cristian</a>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Acasă</a>
                     <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Despre</a>
-                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Skills</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Abilități</a>
                     <a href="#portofoliu" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Portofoliu</a>
                     <a href="#contact" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white font-medium rounded-lg hover:opacity-90 transition-opacity">
                        Contact
                     </a>
                 </nav>
+
+                <div class="flex items-center space-x-4">
+
 
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300">
@@ -82,16 +86,18 @@
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                 </button>
+                </div>
             </div>
 
             <!-- Mobile Navigation (hidden by default) -->
-            <div id="mobile-menu" class=" text-center md:hidden hidden py-4 ">
-                <div class="flex flex-col w-full space-y-4">
+            <div id="mobile-menu" class="flex text-center md:hidden hidden py-4 ">
+                <div class="flex flex-col  items-center w-full space-y-4">
+                   <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Acasă</a>
                     <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Despre</a>
-                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Skills</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Abilități</a>
                     <a href="#portofoliu" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Portofoliu</a>
 
-                    <a href="#contact" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-center">
+                    <a href="#contact" class="w-[50%] px-4 py-2 bg-primary-light dark:bg-primary-dark text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-center">
                         Contact
                     </a>
                 </div>
@@ -200,7 +206,7 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
     }
   </style>
 
-  <!-- Modal structure -->
+  <!-- Portfolio Modal structure -->
 <div id="modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
   <div class="bg-white dark:bg-gray-900 rounded-lg shadow-xl p-6 max-w-xl w-full relative animate-fade-in-up">
     <button id="closeModal" class="absolute top-3 right-4 text-gray-700 dark:text-gray-300 text-2xl font-bold hover:text-red-500">&times;</button>
@@ -211,6 +217,20 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
     </ul>
   </div>
 </div>
+
+  <!-- Skills Modal structure -->
+<div id="skills-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white dark:bg-gray-900 rounded-lg shadow-xl p-6 max-w-xl w-full relative animate-fade-in-up">
+    <button id="closeModal" class="absolute top-3 right-4 text-gray-700 dark:text-gray-300 text-2xl font-bold hover:text-red-500">&times;</button>
+    <h2 id="skillsModalTitle" class="text-2xl font-bold text-gray-900 dark:text-white mb-4"></h2>
+    <h3 id="modalSubtitle" class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4"></h3>
+    <p id="skillsModalContent" class="text-gray-700 dark:text-gray-300 leading-relaxed"></p>
+    <ul id="skillsModalFeatures" class="mt-10  pl-5 space-y-1 text-gray-600 dark:text-gray-400">
+    </ul>
+  </div>
+</div>
+
+
 
   <!-- Card 1 -->
   <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/20 flex flex-col fade-in">
@@ -265,8 +285,8 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
   </div>
             </section>
             <!-- Skills -->
-<section id="skills" class="flex bg-[#0f172a]  px-6 text-white w-full rounded-xl scroll-mt-24">
-  <div class="max-w-6xl mx-auto text-center">
+<section id="skills" class="container flex bg-white dark:bg-gray-800 shadow-lg py-10  px-10 text-white w-full rounded-xl scroll-mt-24">
+  <div class=" mx-auto text-center">
     <h2 class="max-w-2xl text-center text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500 animate-fade-in-up">
       Conținut cu structură și tool-urile potrivite.
     </h2>
@@ -274,41 +294,41 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
       De la articole și microcopy până la editare, structurare și tone of voice — livrez texte care au sens, stil și scop. Gândesc strategic, editez riguros și scriu pentru oameni, nu doar pentru algoritmi.
     </p>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 animate-fade-in-up" style="animation-delay: .4s;">
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('Copywriting')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         Copywriting
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('Content Strategy')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         Content Strategy
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('UX Writing')"  class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         UX Writing
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('SEO Writing')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         SEO Writing
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('Microcopy')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         Microcopy
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('Brand Voice')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         Brand Voice
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('Figma')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         Figma
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('Tailwind CSS')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         Tailwind CSS
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('HTML / CSS')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         HTML / CSS
       </div>
-      <div class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
+      <div onclick="showSkillModal('JavaScript')" class="bg-[#1e293b] hover:bg-violet-700 text-violet-300 hover:text-white transition-all duration-300 px-4 py-3 rounded-xl font-medium shadow-md hover:shadow-violet-500/20">
         JavaScript
       </div>
     </div>
   </div>
 </section>
 <!-- Contact Form -->
-            <section id="contact" class="w-[70%]  bg-white dark:bg-gray-900 rounded-lg shadow-lg scroll-mt-24">
+            <section id="contact" class="w-[70%] px-10 py-10  bg-white dark:bg-gray-900 rounded-lg shadow-lg scroll-mt-24">
   <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 ">Contactează-mă</h2>
   <form  action="https://formspree.io/f/xnndyyen"
   method="POST" class="space-y-6">
@@ -390,143 +410,207 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
           </footer>
     </div>
 
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+   <script>
+  // ======= Theme Toggle ===========
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // Check for saved user preference or use system preference
-        if (localStorage.getItem('color-theme') === 'dark' ||
-            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
+  if (localStorage.getItem('color-theme') === 'dark' ||
+    (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+    themeToggleLightIcon.classList.remove('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    themeToggleDarkIcon.classList.remove('hidden');
+  }
 
-        // Toggle button click handler
-        themeToggle.addEventListener('click', function() {
-            // Toggle icons
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
+  themeToggle.addEventListener('click', function () {
+    themeToggleDarkIcon.classList.toggle('hidden');
+    themeToggleLightIcon.classList.toggle('hidden');
 
-            // Update localStorage and class
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
-    </script>
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('color-theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('color-theme', 'dark');
+    }
+  });
 
-    <!-- Modal Script -->
-<script>
+  // ======= Mobile menu toggle ===========
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
 
- document.addEventListener("DOMContentLoaded", function () {
-      const modal = document.getElementById('modal');
-      const closeModal = document.getElementById('closeModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalSubtitle = document.getElementById('modalSubtitle');
-      const modalContent = document.getElementById('modalContent');
-      const modalFeatures = document.getElementById('modalFeatures');
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
 
-      const modalData = {
-        card1: {
-          title: 'Tastatura StreamBoard Pro',
-          subtitle: 'Produs tech – Copy comercial clar și concis',
-          content: 'Acest exercițiu de redactare vizează descrierea unui produs tehnologic. Am urmărit un stil clar, concis, orientat pe beneficii reale pentru utilizator.',
-          features: [
-            '✔ Bluetooth 5.0 cu conectare rapidă.',
-            '✔ Autonomie 30h, încărcare rapidă.',
-            '✔ Taste confortabile, iluminare LED reglabilă.',
-            '✔ Compactă și ultra-subțire, ideală pentru mobilitate.'
-          ]
-        },
-        card2: {
-          title: 'Serviciu de redactare clară',
-           subtitle: '',
-          content: 'Acest text este un exemplu de auto-prezentare profesională, scris pentru a arăta cum pot livra texte clare, coerente, fără pretenții inutile.',
+  // ======= Header scroll effect ===========
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  });
 
-          features: [
-            'Ofer servicii de redactare:',
-            '✔ Descrieri de produs.',
-            '✔ Texte informative.',
-            '✔ Postări social media.',
-            '✔ Articole scurte comerciale.',
-          ]
-        },
-        card3: {
-          title: 'Sunetul care îți mișcă sufletul',
-          subtitle: '',
-          content: 'Exercițiu de stil emoțional. Am urmărit o tonalitate caldă, umană, apropiată. Poate fi folosit pentru slogan, afiș outdoor, campanie social media sau descriere produs.',
-          features: [
-             'Exemple alternative:',
-            '✔ Simte muzica. Oriunde.',
-            '✔ Sunetul care te însoțește.',
-          ]
-        },
-        card4: {
-          title: 'Profil personal – Redactor flexibil',
-          subtitle: '',
-          content: 'Nu sunt un redactor clasic. Nu mă pierd în metafore, dar știu să scriu clar, organizat și la timp.',
-          features: [
-                '✔ Adaptabil: pot scrie în ton formal, creativ sau prietenos.',
-            '✔ Rapid: învăț stilul cerut și mă adaptez repede.',
-            '✔ Corect: textul meu trece fără probleme testul gramatical și logic.',
-          ]
-        }
-      };
+  // ======= Portfolio Modal ===========
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('closeModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalSubtitle = document.getElementById('modalSubtitle');
+  const modalContent = document.getElementById('modalContent');
+  const modalFeatures = document.getElementById('modalFeatures');
 
-      window.showModalFromId = function (id) {
-        const data = modalData[id];
-        modalTitle.textContent = data.title;
-        modalSubtitle.textContent = data.subtitle || '';
-        modalContent.textContent = data.content;
+  const modalData = {
+    card1: {
+      title: 'Tastatura StreamBoard Pro',
+      subtitle: 'Produs tech – Copy comercial clar și concis',
+      content: 'Exercițiu de redactare pentru un produs tehnologic. Clar, concis, orientat pe beneficii reale.',
+      features: [
+        '✔ Bluetooth 5.0 cu conectare rapidă.',
+        '✔ Autonomie 30h, încărcare rapidă.',
+        '✔ Taste confortabile, iluminare LED reglabilă.',
+        '✔ Compactă și ultra-subțire.'
+      ]
+    },
+    card2: {
+      title: 'Serviciu de redactare clară',
+      subtitle: '',
+      content: 'Auto-prezentare profesională. Texte clare, coerente, fără pretenții inutile.',
+      features: [
+        '✔ Descrieri de produs.',
+        '✔ Texte informative.',
+        '✔ Postări social media.',
+        '✔ Articole scurte comerciale.'
+      ]
+    },
+    card3: {
+      title: 'Sunetul care îți mișcă sufletul',
+      subtitle: '',
+      content: 'Exercițiu de stil emoțional. Ton cald și apropiat, perfect pentru campanii sau descrieri produse.',
+      features: [
+        '✔ Simte muzica. Oriunde.',
+        '✔ Sunetul care te însoțește.'
+      ]
+    },
+    card4: {
+      title: 'Profil personal – Redactor flexibil',
+      subtitle: '',
+      content: 'Nu sunt un redactor clasic. Scriu clar, organizat și la timp.',
+      features: [
+        '✔ Adaptabil – ton formal, creativ sau prietenos.',
+        '✔ Rapid – învăț stilul și mă adaptez.',
+        '✔ Corect – trec testul gramatical și logic.'
+      ]
+    }
+  };
 
-        modalFeatures.innerHTML = '';
-        if (data.features && Array.isArray(data.features)) {
-          data.features.forEach(feature => {
-            const li = document.createElement('li');
-            li.textContent = feature;
-            modalFeatures.appendChild(li);
-          });
-        }
-
-        modal.classList.remove('hidden');
-      };
-
-      closeModal.addEventListener('click', () => {
-        modal.classList.add('hidden');
-      });
-
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.add('hidden');
-        }
-      });
+  window.showModalFromId = function (id) {
+    const data = modalData[id];
+    modalTitle.textContent = data.title;
+    modalSubtitle.textContent = data.subtitle || '';
+    modalContent.textContent = data.content;
+    modalFeatures.innerHTML = '';
+    data.features.forEach(feature => {
+      const li = document.createElement('li');
+      li.textContent = feature;
+      modalFeatures.appendChild(li);
     });
+    modal.classList.remove('hidden');
+  };
 
-      // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+  closeModal.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
 
-        // Header scroll effect
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
+  // ======= Skills Modal ===========
+  const skillsModal = document.getElementById('skills-modal');
+  const skillTitle = document.getElementById('skillsModalTitle');
+const skillContent = document.getElementById('skillsModalContent');
+const skillFeatures = document.getElementById('skillsModalFeatures');
+
+  const skillsData = {
+    'Copywriting': {
+      title: 'Copywriting',
+      content: 'Scriere de texte care conving, vând sau atrag. Tot ce înseamnă reclamă, descrieri de produs și titluri care rup!',
+      features: ['✔ Mesaje clare și convingătoare', '✔ Psihologie în cuvinte', '✔ Texte cu impact']
+    },
+    'Content Strategy': {
+      title: 'Content Strategy',
+      content: 'Planificarea conținutului de pe site sau social media. Ce, când, cui și de ce scriem.',
+      features: ['✔ Plan editorial', '✔ Structură de conținut', '✔ Mesaje adaptate publicului']
+    },
+    'UX Writing': {
+      title: 'UX Writing',
+      content: 'Textele din aplicații și site-uri care ghidează utilizatorul – butoane, mesaje, titluri, erori.',
+      features: ['✔ Microtexte clare', '✔ Navigare intuitivă', '✔ Limbaj prietenos']
+    },
+    'SEO Writing': {
+      title: 'SEO Writing',
+      content: 'Scriere optimizată pentru Google. Să ajungi sus în căutări cu texte utile și bine scrise.',
+      features: ['✔ Cuvinte cheie naturale', '✔ Structură clară', '✔ Texte relevante pentru oameni și algoritmi']
+    },
+    'Microcopy': {
+      title: 'Microcopy',
+      content: 'Textele mici, dar importante: butoane, mesaje de confirmare, erori. Vorbim pe scurt, dar cu efect.',
+      features: ['✔ Butoane clare', '✔ Feedback instant', '✔ Ton natural și empatic']
+    },
+    'Brand Voice': {
+      title: 'Brand Voice',
+      content: 'Vocea brandului tău. Cum sună, cum se exprimă, cum este recunoscut.',
+      features: ['✔ Ghid de stil', '✔ Ton coerent', '✔ Identitate verbală']
+    },
+    'Figma': {
+      title: 'Figma',
+      content: 'Tool de design colaborativ. Creezi UI/UX, prototipuri și layouturi responsive fără să instalezi nimic.',
+      features: ['✔ Design live în browser', '✔ Feedback în timp real', '✔ Ușor de folosit în echipă']
+    },
+    'Tailwind CSS': {
+      title: 'Tailwind CSS',
+      content: 'Framework CSS utilitar. Scrii rapid designuri responsive direct în HTML, fără fișiere CSS separate.',
+      features: ['✔ Utility-first', '✔ Rapid și flexibil', '✔ Perfect pentru design sistematic']
+    },
+    'HTML / CSS': {
+      title: 'HTML / CSS',
+      content: 'Baza oricărui site web. HTML oferă structură, CSS dă stil. Fără ele, internetul e doar text neformatat.',
+      features: ['✔ Structuri semantice', '✔ Layouturi responsive', '✔ Control total asupra designului']
+    },
+    'JavaScript': {
+      title: 'JavaScript',
+      content: 'Magia din spatele interacțiunilor. Face site-ul viu – de la butoane care funcționează până la aplicații întregi.',
+      features: ['✔ DOM manipulation', '✔ Evenimente și funcții', '✔ Bază pentru React, Vue etc.']
+    }
+  };
+
+  window.showSkillModal = function (skill) {
+    const data = skillsData[skill];
+    skillTitle.textContent = data.title;
+    skillContent.textContent = data.content;
+    skillFeatures.innerHTML = '';
+    data.features.forEach(f => {
+      const li = document.createElement('li');
+      li.textContent = f;
+      skillFeatures.appendChild(li);
+    });
+    skillsModal.classList.remove('hidden');
+  };
+
+  document.querySelectorAll('#skills-modal, #skills-modal #closeModal').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (e.target === el) {
+        skillsModal.classList.add('hidden');
+      }
+    });
+  });
 </script>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
