@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manta Paul-Cristian Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#4f46e5',
+                            dark: '#6366f1',
+                        },
+                        secondary: {
+                            light: '#10b981',
+                            dark: '#34d399',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .animation-delay-200 {
+                animation-delay: 0.2s;
+            }
+            .animation-delay-400 {
+                animation-delay: 0.4s;
+            }
+            /* Smooth scroll */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Header animation */
+            .header-scrolled {
+                @apply shadow-md bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- ===== Header ===== -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">Manta Paul-Cristian</a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Despre</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Skills</a>
+                    <a href="#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Portofoliu</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Contact</a>
+                    <a href="./resume.html" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white font-medium rounded-lg hover:opacity-90 transition-opacity">
+                        Vezi CV
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 dark:text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Theme toggle -->
+                <button id="theme-toggle" type="button" class="ml-4 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation (hidden by default) -->
+            <div id="mobile-menu" class="md:hidden hidden py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Despre</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Skills</a>
+                    <a href="#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Portofoliu</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">Contact</a>
+                    <a href="./resume.html" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white font-medium rounded-lg hover:opacity-90 transition-opacity text-center">
+                        Vezi CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex flex-col items-center justify-center pt-20"> <!-- Added pt-20 to account for fixed header -->
+        <!-- Your existing hero section -->
+        <main class="flex flex-col my-[50px] items-center py-12 px-4 sm:px-6 lg:px-8 gap-[100px]">
+            <!-- Your existing content here... -->
+            <!-- Make sure to add IDs to your sections for navigation -->
+            <section id="about" class="max-w-7xl mx-auto">
+                <!-- Your about content -->
+            </section>
+
+            <section id="portfolio" class="flex flex-col items-center justify-center cards">
+                <!-- Your portfolio content -->
+            </section>
+
+            <section id="skills" class="flex bg-[#0f172a] py-20 px-6 text-white w-full rounded-xl">
+                <!-- Your skills content -->
+            </section>
+
+            <section id="contact" class="w-[70%] p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+                <!-- Your contact form -->
+            </section>
+        </main>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <!-- Footer left -->
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Manta Paul-Cristian</h3>
+                    <p class="max-w-md">Organizat, de ajutor și gata de treabă. Contactează-mă pentru colaborări.</p>
+                </div>
+
+                <!-- Footer right - Social links -->
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 mb-6">
+                        <a href="https://www.facebook.com/profile.php?id=100078929389525" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition-colors shadow-sm">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/manta-paul-51a6121b0/" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition-colors shadow-sm">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="tel:+40 (0)745 530 043" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition-colors shadow-sm">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:your-email@example.com" aria-label="Email" class="w-10 h-10 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition-colors shadow-sm">
+                            <i class="far fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <!-- Back to top button -->
+                    <a href="#" class="text-sm flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+                        <i class="fas fa-arrow-up mr-2"></i> Înapoi sus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+                &copy; <span id="current-year"></span> Manta Paul-Cristian. Toate drepturile rezervate.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Your existing scripts... -->
+    <script>
+        // Theme toggle functionality (existing)
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' ||
+            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Your existing modal script and AOS initialization -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>
