@@ -183,66 +183,68 @@ window.showSkillModal = (skill) => {
 });
 
 
-// ======= Contact Form ===========
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Stop form from submitting instantly
 
-    // Hide previous messages
-    document.getElementById('formSuccess').classList.add('hidden');
-    document.getElementById('formError').classList.add('hidden');
-    document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+    // Elemente
+    const name = this.from_name;
+    const email = this.reply_to;
+    const message = this.message;
 
-    // Validate form
-    let isValid = true;
-    const name = this.from_name.value.trim();
-    const email = this.reply_to.value.trim();
-    const message = this.message.value.trim();
+    // Error containers
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
 
-    if (name.length < 2) {
-        document.getElementById('nameError').classList.remove('hidden');
-        isValid = false;
-    }
+    // Success / Error Messages
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        document.getElementById('emailError').classList.remove('hidden');
-        isValid = false;
-    }
-
-    if (message.length < 5) {
-        document.getElementById('messageError').classList.remove('hidden');
-        isValid = false;
-    }
-
-    if (!isValid) return;
-
-    // Show loading state
+    // Submit button & spinner
     const submitBtn = document.getElementById('submitBtn');
     const spinner = document.getElementById('spinner');
+    const submitText = document.getElementById('submitText');
+
+    // Reset all errors and messages
+    [nameError, emailError, messageError, formSuccess, formError].forEach(el => el.classList.add('hidden'));
+
+    let valid = true;
+
+    // Validate name (non empty)
+    if (!name.value.trim()) {
+        nameError.classList.remove('hidden');
+        valid = false;
+    }
+
+    // Validate email with regex (basic but decent)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+        emailError.classList.remove('hidden');
+        valid = false;
+    }
+
+    // Validate message (non empty)
+    if (!message.value.trim()) {
+        messageError.classList.remove('hidden');
+        valid = false;
+    }
+
+    if (!valid) return; // Oops, fix errors first!
+
+    // Disable button and show spinner while "sending"
     submitBtn.disabled = true;
     spinner.classList.remove('hidden');
-    document.getElementById('submitText').textContent = 'Se trimite...';
+    submitText.textContent = "Se trimite...";
 
-    // Send the email
-    emailjs.sendForm('service_gpj70jd', 'template_b6e117o', this)
-        .then(() => {
-            document.getElementById('formSuccess').classList.remove('hidden');
-            this.reset();
-        })
-        .catch((error) => {
-            console.error('Email failed:', error);
-            document.getElementById('formError').classList.remove('hidden');
+    // Fake sending delay (replace with actual sending logic here)
+    setTimeout(() => {
+        // Imagine a successful send
+        submitBtn.disabled = false;
+        spinner.classList.add('hidden');
+        submitText.textContent = "Trimite mesajul";
 
-            // More detailed error handling
-            if (error.status === 400) {
-                console.error('Bad request - check your template parameters');
-            } else if (error.status === 401) {
-                console.error('Unauthorized - check your public key');
-            }
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            spinner.classList.add('hidden');
-            document.getElementById('submitText').textContent = 'Trimite mesajul';
-        });
+        formSuccess.classList.remove('hidden');
+        this.reset(); // Clear form
+
+    }, 2000);
 });
