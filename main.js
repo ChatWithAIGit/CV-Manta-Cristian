@@ -182,60 +182,67 @@ window.showSkillModal = (skill) => {
   });
 });
 
-// ======= Contact Form Submission ===========
 
-const form = document.getElementById('contactForm');
-const successMessage = document.getElementById('formSuccess');
-const errorMessage = document.getElementById('formError');
-const submitBtn = document.getElementById('submitBtn');
-const submitText = document.getElementById('submitText');
-const spinner = document.getElementById('spinner');
+// ======= Contact Form ===========
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+    // Hide previous messages
+    document.getElementById('formSuccess').classList.add('hidden');
+    document.getElementById('formError').classList.add('hidden');
+    document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
 
-  // Hide all error messages
-  document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+    // Validate form
+    let isValid = true;
+    const name = this.from_name.value.trim();
+    const email = this.reply_to.value.trim();
+    const message = this.message.value.trim();
 
-  let valid = true;
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const subject = form.subject.value.trim();
-  const message = form.message.value.trim();
+    if (name.length < 2) {
+        document.getElementById('nameError').classList.remove('hidden');
+        isValid = false;
+    }
 
-  if (name.length < 3) {
-    document.getElementById('nameError').classList.remove('hidden');
-    valid = false;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById('emailError').classList.remove('hidden');
+        isValid = false;
+    }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    document.getElementById('emailError').classList.remove('hidden');
-    valid = false;
-  }
+    if (message.length < 5) {
+        document.getElementById('messageError').classList.remove('hidden');
+        isValid = false;
+    }
 
-  if (subject.length < 3) {
-    document.getElementById('subjectError').classList.remove('hidden');
-    valid = false;
-  }
+    if (!isValid) return;
 
-  if (message.length < 5) {
-    document.getElementById('messageError').classList.remove('hidden');
-    valid = false;
-  }
+    // Show loading state
+    const submitBtn = document.getElementById('submitBtn');
+    const spinner = document.getElementById('spinner');
+    submitBtn.disabled = true;
+    spinner.classList.remove('hidden');
+    document.getElementById('submitText').textContent = 'Se trimite...';
 
-  if (!valid) return;
+    // Send the email
+    emailjs.sendForm('service_gpj70jd', 'template_b6e117o', this)
+        .then(() => {
+            document.getElementById('formSuccess').classList.remove('hidden');
+            this.reset();
+        })
+        .catch((error) => {
+            console.error('Email failed:', error);
+            document.getElementById('formError').classList.remove('hidden');
 
-  // Show loading spinner & disable button
-  spinner.classList.remove('hidden');
-  submitText.textContent = 'Sending...';
-  submitBtn.disabled = true;
-
-  // Fake sending delay for demo (replace with actual send logic)
-  setTimeout(() => {
-    spinner.classList.add('hidden');
-    successMessage.classList.remove('hidden');
-    submitText.textContent = 'Send';
-    submitBtn.disabled = false;
-    form.reset();
-  }, 2000);
+            // More detailed error handling
+            if (error.status === 400) {
+                console.error('Bad request - check your template parameters');
+            } else if (error.status === 401) {
+                console.error('Unauthorized - check your public key');
+            }
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            spinner.classList.add('hidden');
+            document.getElementById('submitText').textContent = 'Trimite mesajul';
+        });
 });

@@ -16,6 +16,14 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+  // Initialize EmailJS once when page loads
+  emailjs.init({
+    publicKey: "user_SFGgiAlVKUwvSIxiO", // Get this from EmailJS dashboard
+    blockHeadless: true
+  });
+</script>
     <script>
         tailwind.config = {
              darkMode: 'class',
@@ -63,6 +71,10 @@
 
 
     </style>
+
+
+
+
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="min-h-screen flex flex-col gap-[100px] items-center justify-center ">
@@ -154,7 +166,7 @@ Am lucrat cu oameni, comenzi, probleme și sub presiune. Nu intru în panică �
                             <div class="absolute -inset-4 bg-primary-light dark:bg-primary-dark rounded-2xl opacity-20 blur-lg"></div>
                             <img src="./img/cris.jpg"
                                  alt="Hero image"
-                                 class="relative rounded-xl shadow-2xl w-full h-auto max-w-lg mx-auto "  data-aos="fade-up">
+                                 class="relative rounded-xl shadow-2xl w-full h-auto max-w-lg mx-auto "  data-aos="fade-up" fetchpriority="high">
                         </div>
                     </div>
                 </div>
@@ -168,7 +180,7 @@ Am lucrat cu oameni, comenzi, probleme și sub presiune. Nu intru în panică �
                             <div class="absolute -inset-4 bg-primary-light dark:bg-primary-dark rounded-2xl opacity-20 blur-lg"></div>
                             <img src="./img/cristian.jpg"
                                  alt="Hero image"
-                                 class="relative rounded-xl shadow-2xl w-full h-auto max-w-lg mx-auto">
+                                 class="relative rounded-xl shadow-2xl w-full h-auto max-w-lg mx-auto" fetchpriority="high">
                         </div>
                     </div>
 
@@ -254,7 +266,7 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
 
   <!-- Card 1 -->
   <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/20 flex flex-col fade-in">
-    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80" alt="Boxa Smart SoundX" class="w-full h-48 object-cover rounded-t-xl" />
+    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80" alt="Boxa Smart SoundX" class="w-full h-48 object-cover rounded-t-xl" fetchpriority="high"/>
     <div class="p-6 flex flex-col flex-grow">
       <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Tastatura compactă StreamBoard Pro</h3>
       <p class="text-gray-700 dark:text-gray-300 flex-grow">
@@ -266,7 +278,7 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
 
   <!-- Card 2 -->
   <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xltransition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/20 flex flex-col fade-in" style="animation-delay: 0.2s; animation-fill-mode: both;">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Design Editorial" class="w-full h-48 object-cover rounded-t-xl" />
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Design Editorial" class="w-full h-48 object-cover rounded-t-xl" fetchpriority="high"/>
     <div class="p-6 flex flex-col flex-grow">
       <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Serviciu de redactare clară și coerentă</h3>
       <p class="text-gray-700 dark:text-gray-300 flex-grow">
@@ -279,7 +291,7 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
 
   <!-- Card 3 -->
   <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/20 flex flex-col fade-in" style="animation-delay: 0.4s; animation-fill-mode: both;">
-    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Sunetul care mișcă sufletul" class="w-full h-48 object-cover rounded-t-xl" />
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Sunetul care mișcă sufletul" class="w-full h-48 object-cover rounded-t-xl" fetchpriority="high"/>
     <div class="p-6 flex flex-col flex-grow">
               <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Sunetul care îți mișcă sufletul</h3>
       <p class="text-gray-800 dark:text-gray-300 italic flex-grow">
@@ -294,7 +306,7 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
 
 <!-- Card 4 -->
 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/20 flex flex-col fade-in" style="animation-delay: 0.4s; animation-fill-mode: both;">
-    <img src="img/portrait.png" alt="Sunetul care mișcă sufletul" class="w-full h-48 object-cover rounded-t-xl" />
+    <img src="img/portrait.png" alt="Sunetul care mișcă sufletul" class="w-full h-48 object-cover rounded-t-xl" fetchpriority="high"/>
     <div class="p-6 flex flex-col flex-grow">
               <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Cine sunt eu și ce livrez?</h3>
       <p class="text-gray-800 dark:text-gray-300 italic flex-grow">
@@ -350,88 +362,85 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
 <!-- Contact Form -->
             <section id="contact" class="w-[70%] px-10 py-10  bg-white dark:bg-gray-900 rounded-lg shadow-lg scroll-mt-24">
   <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 ">Contactează-mă</h2>
- <form id="contactForm" action="https://formspree.io/f/xnndyyen" method="POST" class="space-y-6" novalidate>
+   <form id="contact-form" class="space-y-6">
+        <!-- Nume -->
+        <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Nume</label>
+            <input type="text" id="name" name="from_name" required
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div id="nameError" class="hidden mt-1 text-sm text-red-800 bg-red-100 rounded p-2 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+                <span>Te rog completează numele.</span>
+            </div>
+        </div>
 
-  <!-- Nume -->
-  <div>
-    <label for="name" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Nume</label>
-    <input type="text" id="name" name="name" required
-      class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
-    <div id="nameError" class="hidden mt-1 text-sm text-red-800 bg-red-100 rounded p-2 flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-      </svg>
-      <span>Te rog completează numele.</span>
-    </div>
-  </div>
+        <!-- Email -->
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+            <input type="email" id="email" name="reply_to" required
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div id="emailError" class="hidden mt-1 text-sm text-red-800 bg-red-100 rounded p-2 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+                <span>Te rog introdu un email valid.</span>
+            </div>
+        </div>
 
-  <!-- Email -->
-  <div>
-    <label for="email" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-    <input type="email" id="email" name="email" required
-      class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
-    <div id="emailError" class="hidden mt-1 text-sm text-red-800 bg-red-100 rounded p-2 flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-      </svg>
-      <span>Te rog introdu un email valid.</span>
-    </div>
-  </div>
+        <!-- Subiect -->
+        <div>
+            <label for="subject" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Subiect</label>
+            <input type="text" id="subject" name="subject"
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-  <!-- Subiect -->
-  <div>
-    <label for="subject" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Subiect</label>
-    <input type="text" id="subject" name="subject"
-      class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
-  </div>
+        <!-- Mesaj -->
+        <div>
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Mesaj</label>
+            <textarea id="message" name="message" rows="5" required
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <div id="messageError" class="hidden mt-1 text-sm text-red-800 bg-red-100 rounded p-2 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+                <span>Te rog scrie un mesaj.</span>
+            </div>
+        </div>
 
-  <!-- Mesaj -->
-  <div>
-    <label for="message" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Mesaj</label>
-    <textarea id="message" name="message" rows="5" required
-      class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <div id="messageError" class="hidden mt-1 text-sm text-red-800 bg-red-100 rounded p-2 flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-      </svg>
-      <span>Te rog scrie un mesaj.</span>
-    </div>
-  </div>
+        <!-- Submit Button -->
+        <div class="relative">
+            <button type="submit" id="submitBtn"
+                class="w-full px-6 py-3 bg-blue-700 hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg shadow-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center gap-2">
+                <svg id="spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                </svg>
+                <span id="submitText">Trimite mesajul</span>
+            </button>
+        </div>
 
-  <!-- Submit + Spinner -->
-  <div class="relative">
-    <button type="submit" id="submitBtn"
-      class="w-full px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg shadow-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center gap-2">
-      <svg id="spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
-        viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor"
-          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-      </svg>
-      <span id="submitText">Trimite mesajul</span>
-    </button>
-  </div>
+        <!-- Success Message -->
+        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-200 rounded-lg">
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">Mesajul a fost trimis cu succes! Vă vom contacta în cel mai scurt timp.</span>
+            </div>
+        </div>
 
-  <!-- Success Message -->
-  <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-200 rounded-lg">
-    <div class="flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-      </svg>
-      <span class="font-medium">Mesajul a fost trimis cu succes! Vă vom contacta în cel mai scurt timp.</span>
-    </div>
-  </div>
-
-  <!-- Error Message -->
-  <div id="formError" class="hidden mt-4 p-4 bg-red-100 dark:bg-red-800 text-red-700 dark:text-red-200 rounded-lg">
-    <div class="flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span class="font-medium">A apărut o eroare. Te rugăm să încerci din nou mai târziu.</span>
-    </div>
-  </div>
-</form>
+        <!-- Error Message -->
+        <div id="formError" class="hidden mt-4 p-4 bg-red-100 dark:bg-red-800 text-red-700 dark:text-red-200 rounded-lg">
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="font-medium">A apărut o eroare. Te rugăm să încerci din nou mai târziu.</span>
+            </div>
+        </div>
+    </form>
 
 </section>
 
@@ -479,6 +488,10 @@ Sunt genul de persoană căreia îi place ca lucrurile să meargă lin – și �
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init();</script>
+
+<script>
+
+</script>
 
 </body>
 </html>
