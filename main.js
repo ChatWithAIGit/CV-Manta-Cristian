@@ -182,10 +182,11 @@ window.showSkillModal = (skill) => {
   });
 });
 
-
+// ======= Contact Form ===========
+// Initialize EmailJS
 document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault(); // Stop form from submitting instantly
-
+const form = document.querySelector('form'); // selects the first <form> on the page
     // Elemente
     const name = this.from_name;
     const email = this.reply_to;
@@ -204,6 +205,11 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     const submitBtn = document.getElementById('submitBtn');
     const spinner = document.getElementById('spinner');
     const submitText = document.getElementById('submitText');
+
+    // EmailJS configuration
+    const serviceID = 'service_gpj70jd';      // something like 'service_xxxxx'
+const templateID = 'template_b6e117o';    // something like 'template_yyyyy'
+const publicKey = 'SFGgiAlVKUwvSIxiO';      // the public key (user ID) from EmailJS
 
     // Reset all errors and messages
     [nameError, emailError, messageError, formSuccess, formError].forEach(el => el.classList.add('hidden'));
@@ -236,15 +242,24 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     spinner.classList.remove('hidden');
     submitText.textContent = "Se trimite...";
 
-    // Fake sending delay (replace with actual sending logic here)
-    setTimeout(() => {
-        // Imagine a successful send
-        submitBtn.disabled = false;
-        spinner.classList.add('hidden');
-        submitText.textContent = "Trimite mesajul";
-
-        formSuccess.classList.remove('hidden');
-        this.reset(); // Clear form
-
-    }, 2000);
+    // **Send email with EmailJS**
+    emailjs.init("user_SFGgiAlVKUwvSIxiO");
+     emailjs.send(serviceID, templateID, {
+    from_name: form.name.value,
+    reply_to: form.email.value,
+    message: form.message.value
+  }).then(response => {
+    submitBtn.disabled = false;
+    spinner.classList.add('hidden');
+    submitText.textContent = "Trimite mesajul";
+    formSuccess.classList.remove('hidden');
+    form.reset(); // Reset form properly
+    console.log('Email sent successfully!', response.status, response.text);
+  }).catch(error => {
+    submitBtn.disabled = false;
+    spinner.classList.add('hidden');
+    submitText.textContent = "Trimite mesajul";
+    formError.classList.remove('hidden');
+    console.error('Failed to send email:', error);
+  });
 });
