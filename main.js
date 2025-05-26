@@ -245,9 +245,9 @@ const publicKey = 'SFGgiAlVKUwvSIxiO';      // the public key (user ID) from Ema
     // **Send email with EmailJS**
     emailjs.init("user_SFGgiAlVKUwvSIxiO");
      emailjs.send(serviceID, templateID, {
-    from_name: form.name.value,
-    reply_to: form.email.value,
-    message: form.message.value
+    from_name: name.value,
+     reply_to: email.value,
+    message: message.value
   }).then(response => {
     submitBtn.disabled = false;
     spinner.classList.add('hidden');
