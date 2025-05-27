@@ -183,14 +183,16 @@ window.showSkillModal = (skill) => {
 });
 
 // ======= Contact Form ===========
-// Initialize EmailJS
+// Initialize EmailJS with the public key
+emailjs.init("LIn9QPD4SdiPvjPp_");
+
 document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault(); // Stop form from submitting instantly
-const form = document.querySelector('form'); // selects the first <form> on the page
-    // Elemente
-    const name = this.from_name;
-    const email = this.reply_to;
-    const message = this.message;
+
+    // Get form elements by their name attributes
+    const name = this.querySelector('input[name="from_name"]');
+    const email = this.querySelector('input[name="reply_to"]');
+    const message = this.querySelector('textarea[name="message"]');
 
     // Error containers
     const nameError = document.getElementById('nameError');
@@ -207,59 +209,88 @@ const form = document.querySelector('form'); // selects the first <form> on the 
     const submitText = document.getElementById('submitText');
 
     // EmailJS configuration
-    const serviceID = 'service_gpj70jd';      // something like 'service_xxxxx'
-const templateID = 'template_b6e117o';    // something like 'template_yyyyy'
-const publicKey = 'SFGgiAlVKUwvSIxiO';      // the public key (user ID) from EmailJS
+    const serviceID = 'service_9ztm0nu';      // Your EmailJS service ID
+    const templateID = 'template_b6e117o';    // Your EmailJS template ID
+    const publicKey = 'LIn9QPD4SdiPvjPp_';    // Your EmailJS public key
 
     // Reset all errors and messages
-    [nameError, emailError, messageError, formSuccess, formError].forEach(el => el.classList.add('hidden'));
+    [nameError, emailError, messageError, formSuccess, formError].forEach(el => {
+        if (el) el.classList.add('hidden');
+    });
 
     let valid = true;
 
     // Validate name (non empty)
-    if (!name.value.trim()) {
-        nameError.classList.remove('hidden');
+    if (!name || !name.value.trim()) {
+        if (nameError) nameError.classList.remove('hidden');
         valid = false;
     }
 
     // Validate email with regex (basic but decent)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.value.trim())) {
-        emailError.classList.remove('hidden');
+    if (!email || !emailRegex.test(email.value.trim())) {
+        if (emailError) emailError.classList.remove('hidden');
         valid = false;
     }
 
     // Validate message (non empty)
-    if (!message.value.trim()) {
-        messageError.classList.remove('hidden');
+    if (!message || !message.value.trim()) {
+        if (messageError) messageError.classList.remove('hidden');
         valid = false;
     }
 
-    if (!valid) return; // Oops, fix errors first!
+    if (!valid) return; // Stop if validation fails
 
-    // Disable button and show spinner while "sending"
-    submitBtn.disabled = true;
-    spinner.classList.remove('hidden');
-    submitText.textContent = "Se trimite...";
+    // Disable button and show spinner while sending
+    if (submitBtn) {
+        submitBtn.disabled = true;
+    }
+    if (spinner) {
+        spinner.classList.remove('hidden');
+    }
+    if (submitText) {
+        submitText.textContent = "Se trimite...";
+    }
 
-    // **Send email with EmailJS**
-    emailjs.init("user_SFGgiAlVKUwvSIxiO");
-     emailjs.send(serviceID, templateID, {
-    from_name: name.value,
-     reply_to: email.value,
-    message: message.value
-  }).then(response => {
-    submitBtn.disabled = false;
-    spinner.classList.add('hidden');
-    submitText.textContent = "Trimite mesajul";
-    formSuccess.classList.remove('hidden');
-    form.reset(); // Reset form properly
-    console.log('Email sent successfully!', response.status, response.text);
-  }).catch(error => {
-    submitBtn.disabled = false;
-    spinner.classList.add('hidden');
-    submitText.textContent = "Trimite mesajul";
-    formError.classList.remove('hidden');
-    console.error('Failed to send email:', error);
-  });
+    // Send email with EmailJS
+    emailjs.send(serviceID, templateID, {
+        from_name: name.value.trim(),
+        reply_to: email.value.trim(),
+        message: message.value.trim()
+    }).then(response => {
+        // Success handling
+        if (submitBtn) {
+            submitBtn.disabled = false;
+        }
+        if (spinner) {
+            spinner.classList.add('hidden');
+        }
+        if (submitText) {
+            submitText.textContent = "Trimite mesajul";
+        }
+        if (formSuccess) {
+            formSuccess.classList.remove('hidden');
+        }
+
+        // Reset form
+        this.reset();
+
+        console.log('Email sent successfully!', response.status, response.text);
+    }).catch(error => {
+        // Error handling
+        if (submitBtn) {
+            submitBtn.disabled = false;
+        }
+        if (spinner) {
+            spinner.classList.add('hidden');
+        }
+        if (submitText) {
+            submitText.textContent = "Trimite mesajul";
+        }
+        if (formError) {
+            formError.classList.remove('hidden');
+        }
+
+        console.error('Failed to send email:', error);
+    });
 });
