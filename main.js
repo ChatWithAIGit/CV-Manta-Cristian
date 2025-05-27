@@ -209,7 +209,7 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     const submitText = document.getElementById('submitText');
 
     // EmailJS configuration
-    const serviceID = 'service_9ztm0nu';      // Your EmailJS service ID
+    const serviceID = 'service_1bhdarf';      // Your EmailJS service ID
     const templateID = 'template_b6e117o';    // Your EmailJS template ID
     const publicKey = 'LIn9QPD4SdiPvjPp_';    // Your EmailJS public key
 
